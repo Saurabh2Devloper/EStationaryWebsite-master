@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <title> V STATIONARY SITE | {% block title %}{% endblock title %}</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    /><!--boostrap link for CSS-->
+    <!-- CSS Linking  -->
+    <link rel="stylesheet" href="" icon="">
+    <link rel="stylesheet" href="{% static 'app/css/owl.carousel.min' %}" /> 
+    <link rel="stylesheet" href="{% static 'app/css/all.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'app/css/style.css' %}" />
+
+
+  </head>
+ 
+  <body >
+    
+<!-- <img src="static/app/newp2.png" alt="" srcset=""> -->
+
+    <!-- Nav BAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+      <div class="container-fluid">
+        <!-- Logo Display  -->
+        <a class="navbar-brand" href="#">
+          <img
+            src="{% static 'app/images/vlogo.png' %}"
+            width="70"
+            height="50"
+          />
+        </a>
+        <!-- Button 01 : HOME -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- DropDown Menu At Our Product Sextion -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            {% if request.user.is_authenticated %}
+              
+            
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item dropdown" class="nav-link active">
+              <a
+                class="nav-link dropdown-toggle text-white"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Our Products
+              </a>
+
+              <!-- OUR PRODUCT DROPDOWN -->
+              <ul class="dropdown-menu">
+                <li class="nav-link active">
+                  <a class="dropdown-item" href="{% url 'category' 'NB' %}"
+                    >Books</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'category' 'NB' %}"
+                    >Notebooks</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'category' 'fl' %}"
+                    >Cardpapers</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'category' 'DR' %}"
+                    >Glue</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'category' 'DR' %}"
+                    >Scissors</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'category' 'pn' %}"
+                    >Pens</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'category' 'pn' %}"
+                    >Pencils</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'category' 'DR' %}"
+                    >Drafter</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'category' 'NB' %}"
+                    >Compass</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'category' 'NB' %}"
+                    >ColourBox</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'category' 'fl' %}"
+                    >Files</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'category' 'sc' %}"
+                    >Scales</a
+                  >
+                </li>
+              </ul>
+              <!-- Drop Down Menu Ends Here -->
+            </li>
+          <!-- Our Product Sextion End -->
+
+
+
+          <!-- Navbar About Us section -->
+            <li class="nav-item" >
+              <a class="nav-link text-white"class="nav-link active" text-white href="{% url 'about' %}"
+                >About Us</a
+              >
+            </li>
+        
+
+          <!-- Navbar Constact Us Section -->
+            <li class="nav-item">
+              <a class="nav-link text-white"class="nav-link active"  href="{% url 'contact' %}"
+                >Contact Us</a
+              >
+            </li>
+          </ul>
+
+
+          <!-- Search Button Implementation CSS LEVEL -->
+          <form class="d-flex" role="search" action="/search">
+            <input
+              class="form-control me-2"
+              type="search"
+              name="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-danger" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+
+        <!-- User Display Section Modified Later -->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown mx-2">
+            <a class="nav-link dropdown-toggle text-white"
+              href="#"
+              id="profileDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              >Options </a>
+              <!-- (Just TO Represent Logged In USer KA USername) -->
+           
+            <!-- Drop Down Menu For Profile Related Issues -->
+            <ul class="dropdown-menu" aria-labeledby="profileDropdown">
+              <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
+              <li><a class="dropdown-item" href="{% url 'orders' %}">Orders</a></li>
+
+              <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+          </li>
+          <li class="nav-item mx-2">
+            <!-- Wishlist -->
+            <a href="{% url 'help' %}"" class="nav-link text-white"> Help </a>
+          </li>
+
+          <!-- Nav BAr Extention- 2 More buttons -->
+          <!-- <li class="nav-item mx-2">
+            Wishlist
+           <a href="#" class="nav-link text-white"> Wishlist </a> -->
+          <!-- </li> -->
+          <li class="nav-item mx-2">
+            <!-- Wishlist -->
+            <a href="{% url 'showcart' %}" class="nav-link text-white"> <span class="badge bg-danger">{% if totalitem > 0 %}{{totalitem}}
+              
+            {% endif %}</span> Cart </a>
+          </li>
+          
+          <li class="nav-item mx-2">
+            <!-- Login -->
+            <a href="{% url 'login' %}" class="nav-link text-white"> Login </a>
+          </li>
+
+          <!-- Registration Tab Navbar Last Button -->
+          <li class="nav-item mx-2">
+            <a
+              href="{% url 'customerregistration' %}"
+              class="nav-link text-white"
+            >
+              Registration
+            </a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+<!-- Nav Bar Closed -->
+
+<!-- Banner Display -->
+    {% block banner-slider %} {% endblock banner-slider %}
+    {% block information %} {% endblock information %}
+    {% block main-content %}
+    <br><br>
+    {% endblock main-content %}
+    {% block payment-gateway %}
+      
+    {% endblock payment-gateway %}
+<!-- Banner Display -->
+
+
+
+    <!-- Fixed Footer Throughout page -->
+    <footer class="container-fluid fixed-bottom bg-success text-center p-2 mt-5">
+      Copyright&copy; : 2023 || Developed by : SSM TECHNOLOGIES
+    </footer>
+    <!-- footer Closed  -->
+
+    
+    
+    <!-- Boostrap Script 01 -->
+    <script
+    src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"
+    ></script>
+    
+    
+    <!-- Bootstrap Script 02-->
+    <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+    integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+    crossorigin="anonymous"
+    ></script>
+    
+    
+    <!-- linking JavaScript Scripts local (2 by Fontawsome 1 local) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="{% static 'app/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'app/js/all.min.js' %}"></script>
+    <script type="text/js" src="{% static 'app/js/index.js' %}"></script>
+    
+
+  </body>
+</html>

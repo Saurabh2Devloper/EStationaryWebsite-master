@@ -1,0 +1,14 @@
+""static"" Directory hi Prefetched by django aahe
+same with ""templates"" Directory
+
+yanch nav asach thevav lagt
+static madhe je directly display karaych ahe ashya files thevavya lagtat
+for example :
+images css js ki jyanch direct implementation lagat
+
+templates madhe matr html files ki jya directly render karyachya aahet aashya files
+hya directory madhle pages jashya request yetil tas render hotat
+
+Shivay hi directory Vegvegle Endpoints Create karaychya kamat yete 
+ja ki ekhadya page ip var gelo ki kont page display zal pahije ...
+

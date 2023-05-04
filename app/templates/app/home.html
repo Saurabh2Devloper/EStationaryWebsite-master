@@ -1,0 +1,152 @@
+{% extends 'app/base.html' %}
+<!-- connection with base.html -->
+
+{% load static %}
+<!-- loads static folder just like extention -->
+{% block title %} {% endblock title %}
+
+
+<!-- Banner Display -->
+{% block banner-slider %}
+
+
+    </div>
+  </div>
+</div>
+{% endblock banner-slider %}
+
+
+<br><br><br><br><br><br>
+
+<!-- Product SExtion Information (In genereal) -->
+{% block information %}
+<div class="container-fluid " >
+  <br>
+  <div style="margin: left -10px; position: absolute;" class="row bg-success text-center p-4 text-white border-bottom shadow">
+    <h1>Products</h1>
+    <small class="fs-5">
+      E-stationery refers to a wide range of digital or electronic products that are designed for use in place of traditional paper-based stationery products. These products can be used for a variety of purposes, such as note-taking, document creation, drawing, and more.
+      Overall, e-stationery products offer a range of benefits over traditional paper-based stationery products, including greater convenience, portability, and the ability to save and share notes and documents digitally.
+    </small>
+  </div>
+<br><br><br>
+<br><br><br>
+<!-- </div> -->
+{% endblock information %}
+
+
+
+{% block main-content %}
+<br>
+
+
+  <div class="col-md-4 col-sm-4 mi-go wow fadeInUp" 
+       data-wow-duration="1s" 
+       data-wow-delay="0.6s" 
+       style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;">
+    <div class="goodnesssec buttermilk buttermilk">
+      <a href="{% url 'category' 'fl' %}">
+        <div class="goodnessseccont text-center">
+          <img style="margin-bottom: -500px;" id="3" src="{% static 'app/images/product/p6.jpg' %}" class="img-responsive center-block"
+            alt="Cardpapersimg">
+          <p class="mlkpro"></p>
+        </div>
+      </a>
+    </div>
+  </div> I
+</div>
+
+<div class="col-md-4 col-sm-4 mi-go wow fadeInUp" 
+     data-wow-duration="1s" 
+     data-wow-delay="0.6s" 
+     style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;">
+  <div class="goodnesssec buttermilk buttermilk " style="margin-left: 1250px;">
+    <a href="{% url 'category' 'sc' %}">
+      <div class="goodnessseccont text-center">
+        <img   style="margin-left: -400px;margin-top:50px" src="{% static 'app/images/product/p10.jpg' %}" class="img-responsive center-block" alt="compass">
+      
+      </div>
+    </a>
+  </div>
+</div> I
+
+
+<div class="col-md-4 col-sm-4 mi-go wow fadeInUp" 
+     data-wow-duration="1s" 
+     data-wow-delay="0.6s" 
+     style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;">
+  <div class="goodnesssec buttermilk buttermilk">
+    <a href="{% url 'category' 'pn' %}">
+      <div class="goodnessseccont text-center">
+        <img style="margin-top: -500px;margin-left: 500px;" src="{% static 'app/images/product/p7.jpg' %}" class="img-responsive center-block" alt="penpic">
+        <p class="mlkpro">Colour-Pens</p>
+      </div>
+    </a>
+  </div>
+</div> I
+
+
+
+<div class="col-md-4 col-sm-4 mi-go wow fadeInUp" 
+     data-wow-duration="1s" 
+     data-wow-delay="0.6s" 
+     style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;">
+  <div class="goodnesssec buttermilk buttermilk">
+    <a href="{% url 'category' 'fl' %}">
+      <div class="goodnessseccont text-center">
+        <img style="margin-top: -120px;" src="{% static 'app/images/product/p1.jpg' %}" class="img-responsive center-block" alt="filespic">
+        <p class="mlkpro">Files</p>
+      </div>
+    </a>
+  </div>
+</div> I
+
+
+<div class="col-md-4 col-sm-4 mi-go wow fadeInUp" 
+     data-wow-duration="1s" 
+     data-wow-delay="0.6s" 
+     style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;">
+  <div class="goodnesssec buttermilk buttermilk">
+    <a href="{% url 'category' 'pn' %}">
+      <div class="goodnessseccont text-center">
+        <img  style="margin-left: 500px;margin-top: -480px;" src="{% static 'app/images/product/p11.jpg' %}" class="img-responsive center-block" alt="highlighterpic">
+        <p class="mlkpro">Highlighters</p>
+      </div>
+    </a>
+  </div>
+</div>
+
+
+
+<div class="col-md-4 col-sm-4 mi-go wow fadeInUp" 
+     data-wow-duration="1s" 
+     data-wow-delay="0.6s" 
+     style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;">
+  <div class="goodnesssec buttermilk buttermilk">
+    <a href="{% url 'category' 'pn' %}">
+      <div class="goodnessseccont text-center">
+        <img style="margin-left: 950px;margin-top: -620px;" src="{% static 'app/images/product/p4.jpg' %}" class="img-responsive center-block" alt="pencilpic">
+        <p class="mlkpro">Pencils</p>
+      </div>
+    </a>
+  </div>
+</div>
+
+
+
+<div class="col-md-4 col-sm-4 mi-go wow fadeInUp" 
+     data-wow-duration="1s" 
+     data-wow-delay="0.6s" 
+     style="animation-duration: 1s; animation-delay: 0.6s;animation-name: none;">
+  <div class="goodnesssec8">
+    <a href="{% url 'category' 'sc' %}">
+      <div class="goodnessseccont text-center">
+        <img style="margin-top: -110px;" height="200px" width="250px" src="{% static 'app/images/product/p14.jpg' %}"
+          class="img-responsive center-block" alt="rollersclaepic">
+        <p class="mlkpro">RollerScale</p>
+      </div>
+    </a>
+  </div>
+</div>
+
+{% endblock main-content %}

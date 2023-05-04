@@ -1,0 +1,52 @@
+<!-- XExtentions -->
+{% extends 'app/base.html' %}
+{% load static %} {% block title %}
+CUSTOMER REGISTRATION
+{% endblock title %}
+
+
+
+<!-- Main Content -->
+{% block main-content %}
+<br>
+<div class="container">
+  <div class="col-sm-6 offset-sm-3">
+    <h3>Customer Registration</h3>
+    <hr>
+
+    <!-- Form Sextion  -->
+    <form action="" novalidate class="shadow p-5" method="post">
+      {% csrf_token %}
+      {% for fm in form %}
+      {{fm.label_tag}}{{fm}}
+      <!-- Validations aand Error Display -->
+      <small class="text-danger"> {{fm.errors|striptags}} </small>
+      <br>
+      {% endfor %}
+      <input type="submit" value="submit" class="btn btn-primary" />
+      <br>
+
+      <!-- login Way for Registred users  -->
+      <div class="text-center text-primary fw-bold">
+        <small>Existing User ?
+          <a href="{% url 'login' %}" class="text-danger">Login Now </a>
+        </small>
+      </div>
+
+      <!-- Conditional For Block -->
+      {% if form.non_field_errors %}
+      {% for error in form.non_field_errors %}
+      <p class="alert alert-danger my-3">{{errors}}</p>
+      {% endfor %}
+      {% endif %}
+
+      <!-- Meassage display -->
+      {% for msg in messages %}
+      <div class="alert alert-{{msg.tags}}" role="alert">{{msg}}</div>
+      {% endfor %}
+    </form>
+    <!-- End Of Form Sextion -->
+
+  </div>
+</div>
+{% endblock main-content %}
