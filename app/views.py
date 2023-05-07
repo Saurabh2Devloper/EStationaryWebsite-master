@@ -13,6 +13,14 @@ from . forms import CustomerRegistrationForm,CustomerProfileForm # Impoort regis
 from django.contrib import messages # Importing messages lib from django (inbuilt)
 from django.db.models import Q #logical Django lib
 
+import math
+import random
+from termcolor import colored
+
+# generate a random number between 100000 and 999999
+# random_number = random.randint(100000, 999999)
+
+# print the random number in bold
 
 
 # import smtplib
@@ -286,6 +294,44 @@ def orders(request):
 
 
 # Chackek Out Class --> Extended To Payment Integration
+# class checkout(View):
+
+#     def get(self,request):
+#         totalitem=0
+#         totalitem=len(Cart.objects.filter(user=request.user))
+#         user=request.user
+
+#         add=Customer.objects.filter(user=user)
+#         cart=Cart.objects.filter(user=user)
+
+#         famount=0
+#         for p in cart:
+#             value=p.quantity*p.products.discounted_price
+#             famount=famount+value
+#         totalamount=famount+40
+#         razoramount=int(totalamount*100)
+
+#         client=razorpay.Client(auth=(settings.RAZOR_KEY_ID,settings.RAZOR_KEY_SECRET))
+#         data={"amount" :razoramount,"currency" :"INR","receipt":"order_rcptid_12"}
+#         payment_response=client.order.create(data=data)
+
+#         print(payment_response)
+
+#         order_id=payment_response['id']
+#         order_status=payment_response['status']
+
+#         if order_status=='created':
+#             payment=Payment(
+#                 user=user,
+#                 amount=totalamount,
+#                 razorpay_order_id=order_id,
+#                 razorpay_payment_status=order_status
+#             )
+#         payment.save() 
+#         print('paymet is created')
+#         return render(request,'app/checkout.html',locals())
+    
+
 class checkout(View):
 
     def get(self,request):
@@ -321,6 +367,24 @@ class checkout(View):
             )
         payment.save() 
         print('paymet is created')
+        kname=user.username
+        
+        parcelid=random.randint(100000,999999)
+        
+        message = 'Hello ' + user.username + ','
+        messge2='Your  Payment is  Completed For the Cart!'
+        masg4='Your ParcelID is '+str(parcelid )  +'.'
+        messge3= 'Thank you for Using Our E Stationary Website (VIT) !'
+        final_msg=message+"\n\n       "+messge2+"\n       "+masg4+"\n       "+messge3+"\n\nThank You!"
+        email = user.email
+        # name = request.POST['name']
+        send_mail(
+            'Order Confirmation',
+            final_msg,
+            'settings.EMAIL_HOST_USER',
+            [email],
+            fail_silently=False,
+        )
+
         return render(request,'app/checkout.html',locals())
-    
 

@@ -67,6 +67,7 @@ urlpatterns = [
     path('paymentdone/',views.payment_done,name="paymentdone"),
     #orders on home page path
     path('orders/',views.orders,name="orders"),
+    
 
 ] +static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 # Static img diplay / media import 
